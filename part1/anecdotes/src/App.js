@@ -31,6 +31,7 @@ const App = () => {
 
   return (
     <div>
+      <h1>Anecdote of the day</h1>
       {anecdotes[selected]}
       <div>
         <p>has {votes[selected]} votes</p>
@@ -38,6 +39,10 @@ const App = () => {
       <div>
         <Button handleClick={handleVote} text='vote'/>
         <Button handleClick={handleNextAnecdote} text='next anecdote'/>
+      </div>
+      <div>
+        <h1>Anecdote with the most votes</h1>
+        {anecdotes[Object.keys(votes).reduce((a, b) => votes[a] > votes[b] ? a : b)]}
       </div>
     </div>
   )
